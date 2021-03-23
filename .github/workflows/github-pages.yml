@@ -1,11 +1,14 @@
-name: Testing the GitHub Pages publication
+name: Build and deploy Jekyll on Github Pages
 
 on:
-  push
+  push:
+    branches:
+      - master
+
 
 jobs:
-  jekyll:
-    runs-on: ubuntu-16.04
+  github-pages:
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
 
