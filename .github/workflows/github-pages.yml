@@ -38,7 +38,7 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         target_branch: 'gh-pages'
     - name: Switch to gh-pages branch
-      run: git checkout gh-pages && git pull
+      run: git stash && git checkout gh-pages && git pull
     - uses: burnett01/rsync-deployments@4.1
       with:
         switches: -avzr --delete
