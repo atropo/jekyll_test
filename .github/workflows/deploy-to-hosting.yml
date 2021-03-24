@@ -16,6 +16,9 @@ jobs:
 
     - name: Build
       uses: jerryjvl/jekyll-build-action@v1
+    
+    - name: Show files
+      run: ls * ; ls _site/*
 
     - name: Deploy to hosting via rsync
       uses: burnett01/rsync-deployments@4.1
