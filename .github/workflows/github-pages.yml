@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-
+      with:
+        fetch-depth: 0
     # Use GitHub Actions' cache to shorten build times and decrease load on servers
     - uses: actions/cache@v2
       with:
@@ -36,9 +37,8 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         target_branch: 'gh-pages'
-    - uses: actions/checkout@v2
-      with: 
-          ref: gh-pages
+    - name: Switch to gh-pages branch
+      run: git checkout gh-pages && git pull
     - uses: burnett01/rsync-deployments@4.1
       with:
         switches: -avzr --delete
