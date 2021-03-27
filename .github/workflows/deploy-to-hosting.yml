@@ -24,7 +24,7 @@ jobs:
       uses: burnett01/rsync-deployments@4.1
       with:
         switches: -avzr --delete
-        path: /_site
+        path: /_site/*
         remote_path: test_github_deploy/
         remote_host: ${{ secrets.DEPLOY_HOST }}
         remote_port: ${{ secrets.DEPLOY_PORT }}
